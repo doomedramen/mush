@@ -1,3 +1,5 @@
+@import '../node_modules/modern-normalize/modern-normalize.css';
+
 :root {
   --Background: #282a36;
   --CurrentLine: #44475a;
@@ -10,6 +12,11 @@
   --Purple: #bd93f9;
   --Red: #ff5555;
   --Yellow: #f1fa8c;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html,
@@ -27,6 +34,13 @@ body {
 }
 
 #text {
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
+    helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial,
+    sans-serif;
+
+    /* font-weight: 600; */
+    /* font-size: large; */
+
   background-color: var(--Background);
   width: 100% !important;
   height: 100% !important;
