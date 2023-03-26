@@ -1,0 +1,52 @@
+:root {
+  --Background: #282a36;
+  --CurrentLine: #44475a;
+  --Foreground: #f8f8f2;
+  --Comment: #6272a4;
+  --Cyan: #8be9fd;
+  --Green: #50fa7b;
+  --Orange: #ffb86c;
+  --Pink: #ff79c6;
+  --Purple: #bd93f9;
+  --Red: #ff5555;
+  --Yellow: #f1fa8c;
+}
+
+html,
+body {
+  background-color: var(--Background);
+  color: var(--Foreground);
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  height: 100vh;
+  width: 100%;
+  width: 100vw;
+
+  box-sizing: border-box;
+}
+
+#text {
+  background-color: var(--Background);
+  width: 100% !important;
+  height: 100% !important;
+  box-sizing: border-box;
+
+  padding: 8px;
+
+  position: absolute;
+
+  color: var(--Foreground);
+}
+
+textarea {
+  border: none;
+  overflow: auto;
+  outline: none;
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+
+  resize: none;
+}
