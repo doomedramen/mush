@@ -2,27 +2,25 @@ const Store = require('electron-store');
 const store = new Store();
 const STORE_KEY = 'MUSH_TEXT'
 
-function debounce(func, timeout = 500) {
-  let timer;
-  return (...args) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => { func.apply(this, args); }, timeout);
-  };
-}
+const editor = CodeMirror(document.getElementById('editor'), {
+  mode: "markdown",
+  lineNumbers: false,
+  theme: 'dracula'
+});
 
-function saveInput(event) {
-  const newText = event?.target?.value || ''
-  store.set(STORE_KEY, newText)
-}
+let saveTimeout;
 
-window.addEventListener('load', function () {
-  const initText = store.get(STORE_KEY)
-  const textInput = document.getElementById('text')
-  if (initText) {
-    textInput.value = initText
+editor.on('change', () => {
+  if (saveTimeout) {
+    clearTimeout(saveTimeout)
   }
-  textInput.addEventListener('keyup', debounce((event) => saveInput(event)))
+  saveTimeout = setTimeout(() => {
+    const newText = editor.getValue() || ''
+    store.set(STORE_KEY, newText)
+  }, 500)
 })
 
-
-
+const initText = store.get(STORE_KEY)
+if (initText) {
+  editor.setValue(initText)
+}
