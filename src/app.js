@@ -5,7 +5,8 @@ const STORE_KEY = 'MUSH_TEXT'
 const editor = CodeMirror(document.getElementById('editor'), {
   mode: "markdown",
   lineNumbers: false,
-  theme: 'dracula'
+  theme: 'dracula',
+  lineWrapping: true,
 });
 
 let saveTimeout;
